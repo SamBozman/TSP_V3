@@ -12,8 +12,12 @@ function setup() {
     var v = createVector(random(width), random(height), i);
     cities[i] = v; //Initial random placement array of total cities.       
   }
-  createPath();
+  control();
+}
 
+//****************************************************************** */
+function control(){
+  createPath(cities);
 }
 
 //****************************************************************** */

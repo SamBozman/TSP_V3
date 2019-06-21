@@ -1,7 +1,8 @@
 
-function createPath() {
+function createPath(cityArray) {
 
-  unreached = cities.slice(); //copy of cities
+  unreached = cityArray.slice(); //copy of cityArray
+  reached.splice(0,reached.length);//clear reached array
   reached.push(unreached[0]);
   cityPath[0] = unreached[0].z;
   unreached.splice(0, 1);
@@ -27,7 +28,7 @@ function createPath() {
     cityPath.push(unreached[uIndex].z);
     unreached.splice(uIndex, 1);
   }
-  var sum = calcDistance(cities, cityPath);
+  var sum = calcDistance(cityArray, cityPath);
   console.log("Distance = ", sum);
 }
 
