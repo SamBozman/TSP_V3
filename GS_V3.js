@@ -1,8 +1,10 @@
 var cities = [];
 var cityPath = [];
-var totalCities = 100;
+var bestPath = [];
+var totalCities = 50;
 var reached = [];
 var unreached = [];
+
 
 //****************************************************************** */
 function setup() {
@@ -35,11 +37,11 @@ function draw() {
   
   beginShape();
   for (var i = 0; i < totalCities; i++) {
-    var p = cityPath[i];
+    var p = bestPath[i];
     vertex(cities[p].x, cities[p].y);
   }
   //stroke(0);
-  vertex(cities[cityPath[0]].x, cities[cityPath[0]].y);
+  vertex(cities[bestPath[0]].x, cities[bestPath[0]].y);
   endShape();
  
 
