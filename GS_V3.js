@@ -2,12 +2,12 @@ var cities = [];
 var citiesIndex = [];
 var cityPath = [];
 var bestPath = [];
-var totalCities = 10;
+var totalCities = 50;
 var reached = [];
 var unreached = [];
 var dropdown;
 var shuffledArrays = 1000; //holds shuffled copies of cities Index
-var suffledOrder = [];
+var shuffledOrder = [];
 var fitness = [];
 
 var bestEverDistance = Infinity;
@@ -31,7 +31,7 @@ function setup() {
     //Create a popSize shuffled array of the order array.
     // (if there are 500 popSize then there will be 
     // 500 suffled copies of the order array)
-    suffledOrder[i] = shuffle(citiesIndex);
+    shuffledOrder[i] = shuffle(citiesIndex);
      
   }
   

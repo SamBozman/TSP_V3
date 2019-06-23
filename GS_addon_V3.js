@@ -2,18 +2,18 @@
 //********************************************************* */
 function calculateFitness() {
   var bestCurrentDistance = Infinity;
-  for (var i = 0; i < suffledOrder.length; i++) {
-    var d = calcDistance(cities, suffledOrder[i]);
+  for (var i = 0; i < shuffledOrder.length; i++) {
+    var d = calcDistance(cities, shuffledOrder[i]);
 
     if (d < bestEverDistance) { //if distance < recordDistance 
       bestEverDistance = d;
-      bestEverOrder = suffledOrder[i];
+      bestEverOrder = shuffledOrder[i];
       console.log("bestEverDistance = ", bestEverDistance);
     }
     //Find the currentBest everytime this function is called.
     if (d < bestCurrentDistance) {
       bestCurrentDistance = d;
-      bestCurrentOrder = suffledOrder[i];
+      bestCurrentOrder = shuffledOrder[i];
       // currentBest is used to draw Cities with currentBest path
 
     }
@@ -36,14 +36,14 @@ function normalizeFitness() {
 //******************************************************************
 function nextGeneration() {
   var newShuffledOrder = [];
-  for (var i = 0; i < suffledOrder.length; i++) {
-    var orderA = pickOne(suffledOrder, fitness);
-    var orderB = pickOne(suffledOrder, fitness);
+  for (var i = 0; i < shuffledOrder.length; i++) {
+    var orderA = pickOne(shuffledOrder, fitness);
+    var orderB = pickOne(shuffledOrder, fitness);
     var order = crossOver(orderA, orderB);
     mutate(order, mr);
     newShuffledOrder[i] = order;
   }
-  suffledOrder = newShuffledOrder;
+  shuffledOrder = newShuffledOrder;
 }
 
 //******************************************************************
