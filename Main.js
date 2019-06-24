@@ -2,11 +2,11 @@ var cities = [];
 var citiesIndex = [];
 var cityPath = [];
 var bestPath = [];
-var totalCities = 50;
+var totalCities = 100;
 var reached = [];
 var unreached = [];
 var dropdown;
-var shuffledArrays = 1000; //holds shuffled copies of cities Index
+var shuffledArrays = 5000; //holds shuffled copies of cities Index
 var shuffledOrder = [];
 var fitness = [];
 
@@ -19,7 +19,7 @@ var statusP;
 //****************************************************************** */
 function setup() {
   createCanvas(1000, 1000);
-  mr = .01; //Mutation rate (between .01 and .0000001)
+  mr = .0000001; //Mutation rate (between .01 and .0000001)
 
   for (var i = 0; i < totalCities; i++) {
     var v = createVector(random(width), random(height), i);
@@ -27,27 +27,25 @@ function setup() {
     citiesIndex[i] = i; // Index order of city vectors     
   }
   
-  for (var i = 0; i < shuffledArrays; i++) {
+  //Set inital i to 1 so that I can push bestPath ot index 0
+  for (var i = 1; i < shuffledArrays; i++) {
     //Create a popSize shuffled array of the order array.
     // (if there are 500 popSize then there will be 
     // 500 suffled copies of the order array)
     shuffledOrder[i] = shuffle(citiesIndex);
      
   }
-  
-  
-  createPath(cities);
-
+  createPath(cities);  
 }
 
 
 //****************************************************************** */
 function draw() {
+  
   background(200);
-  calculateFitness();
-  normalizeFitness();
+  calcFitness();
   nextGeneration();
-
+  
   // Draw 4 quadrants on screen -------------------------------
   stroke(155);
   line(0, (height / 2), width, (height / 2));

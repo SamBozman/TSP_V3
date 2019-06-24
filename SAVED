@@ -1,0 +1,37 @@
+//****************************************************************** */
+function preload() {
+  table = loadTable('berlin52V2.csv', 'csv','header');
+}
+//****************************************************************** */
+function setup() {
+
+  createCanvas(1000, 1000);
+  mr = .0000001; //Mutation rate (between .01 and .0000001)
+
+  // for (var i = 0; i < totalCities; i++) {
+  //   var v = createVector(random(width), random(height));
+  //   cities[i] = v; //Initial random placement array of total cities.
+  //   citiesIndex[i] = i; // An array of the index number for total cities.
+  // }
+
+for (let r = 0; r < table.getRowCount(); r++){
+   
+  citiesIndex[r] = r;
+   
+  
+    var v = createVector(table.get(r, 'x')/2, table.get(r, 'y')/2,r);
+    cities[r] = v; //Initial random placement array of total 
+  
+}
+  //Set inital i to 1 so that I can push bestPath to index 0
+  for (var i = 1; i < shuffledArrays; i++) {
+    //Create a popSize shuffled array of the order array.
+    // (if there are 500 popSize then there will be 
+    // 500 suffled copies of the order array)
+    shuffledOrder[i] = shuffle(citiesIndex);
+
+  }
+  // console.log("TCL: setup -> citiesIndex", citiesIndex);
+  // console.log("TCL: setup -> cities", cities);
+  createPath(cities);  
+}
