@@ -25,7 +25,7 @@ function preload() {
 //****************************************************************** */
 function setup() {
   createCanvas(1000, 1000);
-  var mr = document.getElementById("myNumber").value;
+  
   //mr = .01; //Mutation rate (between .01 and .0000001)
 
   // for (var i = 0; i < totalCities; i++) {
@@ -61,6 +61,7 @@ function setup() {
 function draw() {
   
   background(200);
+  mr = document.getElementById("myNumber").value;
   calcFitness();
   nextGeneration();
   
