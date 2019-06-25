@@ -25,7 +25,7 @@ function preload() {
 //****************************************************************** */
 function setup() {
   createCanvas(1000, 1000);
-  var mr = document.getElementById("myNumber").value;
+  
   //mr = .01; //Mutation rate (between .01 and .0000001)
 
   // for (var i = 0; i < totalCities; i++) {
@@ -63,7 +63,7 @@ function draw() {
   background(200);
   calcFitness();
   nextGeneration();
-  
+  mr = document.getElementById("myNumber").value;
   // Draw 4 quadrants on screen -------------------------------
   // stroke(155);
   // line(0, (height / 2), width, (height / 2));

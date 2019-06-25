@@ -8,6 +8,7 @@ function calcFitness() {
       bestEverDistance = d;
       bestEverOrder = shuffledOrder[i];
       console.log("bestEverDistance = ", bestEverDistance);
+      console.log("Mutation rate = ", mr);
     }
     //Find the currentBest everytime this function is called.
     if (d < bestCurrentDistance) {
