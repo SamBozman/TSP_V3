@@ -45,7 +45,7 @@ function setup() {
   }
   
   
-  //Set inital i to 1 so that I can push bestPath ot index 0
+  //Set inital i to 1 so that I can push bestPath to index 0
   for (var i = 1; i < shuffledArrays; i++) {
     //Create a popSize shuffled array of the order array.
     // (if there are 500 popSize then there will be 

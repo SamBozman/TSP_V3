@@ -7,8 +7,8 @@ function createPath(cityArray) {
     reached.splice(0, reached.length); //clear reached array
     cityPath.splice(0, cityPath.length); //clear citypath array;
     reached.push(unreached[k]);
-    cityPath[0] = unreached[k].z;
-    unreached.splice(k, 1);
+    cityPath[0] = unreached[k].z;//Add the city Index # to cityPath
+    unreached.splice(k, 1);//Remove the same city from unReached
 
     while (unreached.length > 0) {
       var rec2 = Infinity;
@@ -19,7 +19,9 @@ function createPath(cityArray) {
         for (var j = 0; j < unreached.length; j++) {
           var v1 = reached[i];
           var v2 = unreached[j];
+         
           var d = dist(v1.x, v1.y, v2.x, v2.y);
+          
           if (d < rec2) {
             rec2 = d;
             rIndex = i;
@@ -27,11 +29,12 @@ function createPath(cityArray) {
           }
         }
       }
-      reached.push(unreached[uIndex]);
-      cityPath.push(unreached[uIndex].z);
-      unreached.splice(uIndex, 1);
+      
+      reached.push(unreached[uIndex]);//add closest city to 'reached'
+      cityPath.push(unreached[uIndex].z);//add index of closest city to cityPath
+      unreached.splice(uIndex, 1);//remove same city from unreached
     }
-
+//At this point we have a cityPath for 'k'starting point
     var sum = calcDistance(cityArray, cityPath);
     
     if (sum < rec1) {
